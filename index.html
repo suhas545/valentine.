@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Be My Valentine 💖</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: #0f172a;
+      color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    h1 span {
+      color: #22c55e;
+    }
+
+    .card {
+      background: white;
+      color: black;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      min-width: 320px;
+    }
+
+    .buttons {
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 14px 30px;
+      font-size: 22px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 10px;
+    }
+
+    .yes {
+      background: #ff2d7a;
+      color: white;
+    }
+
+    .no {
+  position: relative;
+  transition: all 0.2s ease;
+}
+  </style>
+</head>
+
+<body>
+
+  <h1>Be My <span>Valentine</span></h1>
+
+  <div class="card">
+    <p>Will you be my Valentine?</p>
+
+    <div class="buttons">
+      <button class="yes" onclick="yesClick()">Yes</button>
+      <button class="no" onclick="noClick()">No</button>
+    </div>
+  </div>
+
+  <script>
+  let i = 0;
+  const msgs = [
+    "Hey 😶",
+    "Nope?",
+    "Still no? 😢",
+    "Pleaseee 🥺",
+    "You sure? 😭",
+    "Okay fine 😶‍🌫️"
+  ];
+
+  function noClick() {
+    const noBtn = document.querySelector(".no");
+    const yesBtn = document.querySelector(".yes");
+
+    // Change NO text
+    noBtn.textContent = msgs[i];
+    i = (i + 1) % msgs.length;
+
+    // YES grows faster
+    const size = parseFloat(getComputedStyle(yesBtn).fontSize);
+    yesBtn.style.fontSize = size * 1.5 + "px";
+
+    // NO teleports
+    noBtn.style.position = "absolute";
+    noBtn.style.left = Math.random() * 80 + "%";
+    noBtn.style.top = Math.random() * 80 + "%";
+
+    // NO shrinks
+    noBtn.style.transform = "scale(0.8)";
+  }
+
+  // NO runs away on hover 😈
+  document.addEventListener("mouseover", function (e) {
+    if (e.target.classList.contains("no")) {
+      e.target.style.left = Math.random() * 80 + "%";
+      e.target.style.top = Math.random() * 80 + "%";
+    }
+  });
+
+  function yesClick() {
+    window.location.href = "yes.html";
+  }
+</script>
+
+
+</body>
+</html>
