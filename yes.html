@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html><!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
@@ -20,18 +20,18 @@
     }
 
     h1 {
-      margin-bottom: 20px;
-      animation: fadeIn 2s ease;
+      margin-bottom: 15px;
     }
 
     video {
-      width: 300px;
-      height: 300px;
+      width: 90vw;        /* BIG on phone */
+      max-width: 420px;   /* Nice on PC */
+      height: 60vh;
+      max-height: 520px;
       object-fit: cover;
-      border-radius: 20px;
+      border-radius: 25px;
       border: 6px solid white;
-      box-shadow: 0 0 30px rgba(255,255,255,0.6);
-      animation: popIn 1.5s ease;
+      box-shadow: 0 0 35px rgba(255,255,255,0.6);
     }
 
     .heart {
@@ -46,26 +46,28 @@
       50% { opacity: 1; }
       100% { transform: translateY(-10vh); opacity: 0; }
     }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes popIn {
-      from { transform: scale(0.5); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
-    }
   </style>
 </head>
 
 <body>
 
-  <h1>My Valentine 💖 Elli</h1>
+  <h1> 💖 Elli</h1>
 
-  <video src="elli.mp4" autoplay loop muted playsinline></video>
+  <video
+    id="loveVideo"
+    src="elli.mp4"
+    autoplay
+    muted
+    loop
+    playsinline
+  ></video>
 
   <script>
+    // Force autoplay on mobile
+    const video = document.getElementById("loveVideo");
+    video.play().catch(() => {});
+
+    // Floating hearts
     setInterval(() => {
       const heart = document.createElement("div");
       heart.className = "heart";
@@ -79,3 +81,4 @@
 
 </body>
 </html>
+
