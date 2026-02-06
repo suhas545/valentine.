@@ -1,4 +1,4 @@
-<!DOCTYPE html><!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
@@ -8,35 +8,72 @@
     body {
       margin: 0;
       height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
       background: linear-gradient(135deg, #ff9a9e, #fad0c4);
       font-family: Arial, sans-serif;
       color: white;
-      text-align: center;
       overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    h1 {
-      margin-bottom: 15px;
+    .container {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      max-width: 1100px;
+      width: 100%;
     }
 
     video {
-      width: 90vw;        /* BIG on phone */
-      max-width: 420px;   /* Nice on PC */
-      height: 150vh;
-      max-height: 520px;
+      width: 42vw;
+      max-width: 450px;
+      height: 65vh;
+      max-height: 560px;
       object-fit: cover;
       border-radius: 25px;
       border: 6px solid white;
       box-shadow: 0 0 35px rgba(255,255,255,0.6);
     }
 
+    .text {
+      max-width: 460px;
+      animation: fadeIn 2s ease;
+      line-height: 1.6;
+    }
+
+    .text h1 {
+      margin-top: 0;
+      margin-bottom: 12px;
+    }
+
+    .text p {
+      font-size: 17px;
+      margin-bottom: 10px;
+    }
+
+    /* Mobile view */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      video {
+        width: 92vw;
+        height: 55vh;
+      }
+
+      .text {
+        max-width: 92vw;
+      }
+    }
+
     .heart {
       position: absolute;
-      font-size: 40px;
+      font-size: 20px;
       animation: floatUp 6s linear infinite;
       opacity: 0.8;
     }
@@ -46,21 +83,67 @@
       50% { opacity: 1; }
       100% { transform: translateY(-10vh); opacity: 0; }
     }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 
 <body>
 
-  <h1> 💖 Elli</h1>
+  <div class="container">
 
-  <video
-    id="loveVideo"
-    src="elli.mp4"
-    autoplay
-    muted
-    loop
-    playsinline
-  ></video>
+    <!-- VIDEO -->
+    <video
+      id="loveVideo"
+      src="elli.mp4"
+      autoplay
+      muted
+      loop
+      playsinline
+    ></video>
+
+    <!-- TEXT -->
+    <div class="text">
+      <h1>Hey Elli 🤍</h1>
+
+      <p>
+        First thing I really want to say is… for me, mainly, you’re a damn different
+        person from anyone I’ve met till now.
+      </p>
+
+      <p>
+        That honestly surprised me, and before I even realized it,
+        I started liking you more and more.
+      </p>
+
+      <p>
+        Looks-wise toh you’re just beautiful — but it’s not only about that.
+        You’re beautiful inside and out.
+        Cute untav, adorable untav,
+        and that round round nose is honestly even more cute than you know 😌
+      </p>
+
+      <p>
+        I don’t know about others, but naaku nee straight-forward nature chala istam —
+        that itself is really impressive.
+      </p>
+
+      <p>
+        We might have started with a few fights, but yeah…
+        things are changing, and honestly,
+        I’m starting to enjoy this journey with you
+        more than I expected.
+      </p>
+
+      <p style="margin-top:18px;">
+        — <strong>Suhas 🤍</strong>
+      </p>
+    </div>
+
+  </div>
 
   <script>
     // Force autoplay on mobile
@@ -81,6 +164,3 @@
 
 </body>
 </html>
-
-
-
